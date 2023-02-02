@@ -55,3 +55,8 @@ render() {
         </form>
     )
 }
+ContactForm.proptypes = {
+    name: PropTypes.string.isRequired,
+    number: PropTypes.number.isRequired,
+    onSubmit: PropTypes.func.isRequired,
+};
