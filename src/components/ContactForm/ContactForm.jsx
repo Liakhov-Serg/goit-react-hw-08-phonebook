@@ -24,7 +24,7 @@ handleSubmit = evt => {
     });
 };
 
-render() {
+  render() {
     const { name, number } = this.state;
     return (
         <form onSubmit={this.handleSubmit}>
@@ -54,7 +54,8 @@ render() {
             <button type="submit">Add contact</button>
         </form>
     )
-}
+};
+
 ContactForm.proptypes = {
     name: PropTypes.string.isRequired,
     number: PropTypes.number.isRequired,
