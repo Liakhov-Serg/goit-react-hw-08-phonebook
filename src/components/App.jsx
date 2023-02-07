@@ -6,7 +6,6 @@ import { nanoid } from 'nanoid';
 import './App.module.css';
 
 export class App extends Component {
-  
   state = {
     contacts: [
       // { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
@@ -17,8 +16,7 @@ export class App extends Component {
     filter: '',
   };
 
-//   
-formSubmit = ({ name, number }) => {
+  formSubmit = ({ name, number }) => {
     const contact = {
       id: nanoid(),
       name,
