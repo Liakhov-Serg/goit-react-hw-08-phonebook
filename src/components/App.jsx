@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import { ContactForm } from './ContactForm/ContactForm';
 import { ContactList } from './ContactList/ContactList';
 import { Filter } from './Filter/Filter';
-// import { nanoid } from 'nanoid';
+import { nanoid } from 'nanoid';
 import './App.module.css';
-// import { ContactForm } from "./ContactForm/ContactForm";
 
 export class App extends Component {
+  
   state = {
     contacts: [
       // { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
@@ -20,7 +20,7 @@ export class App extends Component {
 //   
 formSubmit = ({ name, number }) => {
     const contact = {
-      // id: nanoid(),
+      id: nanoid(),
       name,
       number,
     };
