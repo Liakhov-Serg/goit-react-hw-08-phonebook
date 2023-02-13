@@ -13,6 +13,7 @@ input {
   color: #333;
   margin-top: 20px;
   font-size: 20px;
+  text-align: center;
   padding: 10px;
   border-radius: 0.1rem;
   border: none;
@@ -21,8 +22,11 @@ input {
   display: block;
   box-shadow: inset 0px 0px 8px 0px #33333347;
 }
+input::placeholder {
+  font-weight: 400;
+}
 
-form > button {
+form > button { 
   font-size: 20px;
   font-weight: 800;
   color: rgba(216, 38, 38, 0.8);

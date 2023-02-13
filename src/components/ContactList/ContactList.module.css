@@ -3,6 +3,7 @@ ul {
   flex-direction: column;
   list-style: none;
   padding: 0;
+  align-items: center;
 }
 
 li {
