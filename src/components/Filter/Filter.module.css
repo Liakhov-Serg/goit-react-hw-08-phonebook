@@ -2,6 +2,7 @@ label {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: rgba(241, 77, 93, 0.904);
 }
 
 label > input {

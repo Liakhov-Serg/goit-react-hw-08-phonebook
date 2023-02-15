@@ -5,7 +5,7 @@ form {
   align-items: center;
   border-radius: 10px;
   padding: 30px;
-  background-color: rgba(26, 170, 227, 0.5);
+  background-color: rgba(241, 77, 93, 0.904);
   box-shadow: 0px 0px 8px 0px #33333347;
 }
 
@@ -42,5 +42,5 @@ form > button {
 
 form > button:hover {
   transform: scale(1.1);
-  background-color: rgba(79, 183, 93, 0.2);
+  background-color: #fff200ed;
 }
