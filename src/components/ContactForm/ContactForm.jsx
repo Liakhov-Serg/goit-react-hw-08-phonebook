@@ -1,6 +1,7 @@
 
 import { useState } from "react";
-import PropTypes from 'prop-types';
+import { nanoid } from 'nanoid';
+// import PropTypes from 'prop-types';
 import './ContactForm.module.css';
 
 
@@ -27,10 +28,23 @@ export const ContactForm = ({ onSubmit }) => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    onSubmit(name, number,);
+    const contact = {
+      id: nanoid(),
+      name,
+      number,
+    };
+
+    const enterContacts = contacts.some(
+      contact =>
+        (contact.name === name.toLowerCase() && contact.number === number) ||
+        contact.number === number
+    );
+    enterContacts
+      ? alert(`${name} or ${number} is already in contacts`)
+      : dispatch(addContact(contact));
+
     setName('');
     setNumber('');
-    
   };
 
     
@@ -64,8 +78,8 @@ export const ContactForm = ({ onSubmit }) => {
 };
 
 
-ContactForm.prototypes = {
-  name: PropTypes.string,
-  number: PropTypes.number,
-  onSubmit: PropTypes.func,
-};
+// ContactForm.prototypes = {
+//   name: PropTypes.string,
+//   number: PropTypes.number,
+//   onSubmit: PropTypes.func,
+// };
