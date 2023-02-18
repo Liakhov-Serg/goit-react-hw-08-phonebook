@@ -8,7 +8,9 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-import {persistedContactsReducer} from "./slice"
+import { persistedContactsReducer } from "./slice";
+
+
 export const store = configureStore({
     reducer: {
         contacts: persistedContactsReducer,
