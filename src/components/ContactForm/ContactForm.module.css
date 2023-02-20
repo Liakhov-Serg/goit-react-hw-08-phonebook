@@ -5,8 +5,9 @@ form {
   align-items: center;
   border-radius: 10px;
   padding: 30px;
-  background-color: rgba(241, 77, 93, 0.904);
+  background-color: rgba(77, 77, 241, 0.904);
   box-shadow: 0px 0px 8px 0px #33333347;
+  
 }
 
 input {
