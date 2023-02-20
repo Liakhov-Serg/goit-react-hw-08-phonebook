@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState } from 'react';
 import './ContactForm.module.css';
 import {
   useGetContactsQuery,
@@ -9,11 +9,10 @@ export const ContactForm = () => {
   const [name, setName] = useState('');
   const [phone, setNumber] = useState('');
 
-  const {data: contacts} = useGetContactsQuery();
+  const { data: contacts } = useGetContactsQuery();
   const [addContact] = useAddContactMutation();
 
   const handleChange = event => {
-     
     const { name, value } = event.target;
     switch (name) {
       case 'name':
@@ -27,7 +26,6 @@ export const ContactForm = () => {
     }
   };
 
-
   const handleSubmit = async event => {
     event.preventDefault();
     const contact = {
@@ -40,6 +38,7 @@ export const ContactForm = () => {
         (contact.name === name.toLowerCase() && contact.phone === phone) ||
         contact.phone === phone
     );
+
     enterContacts
       ? alert(`${name} or ${phone} is already in contacts`)
       : addContact(contact);
@@ -48,7 +47,6 @@ export const ContactForm = () => {
     setNumber('');
   };
 
-    
   return (
     <form onSubmit={handleSubmit}>
       <input
@@ -61,7 +59,6 @@ export const ContactForm = () => {
         title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
         required
       />
-
       <input
         type="tel"
         name="number"
@@ -72,10 +69,7 @@ export const ContactForm = () => {
         title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
         required
       />
-
       <button type="submit">Add contact</button>
     </form>
   );
 };
-
-

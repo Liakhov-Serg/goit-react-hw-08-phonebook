@@ -7,8 +7,6 @@ import {
 } from '../../redux/contactsSlice';
 
 export const ContactList = () => {
-  // const dispatch = useDispatch();
-  // const contacts = useSelector(getContacts);
   const filter = useSelector(getFilter);
   const { data: contacts, isFetching } = useGetContactsQuery();
   const [deleteContact, { isLoading }] = useDeleteContactMutation();
@@ -17,7 +15,7 @@ export const ContactList = () => {
     const normalizedFilter = filter.toLowerCase();
     if (contacts) {
       return contacts.filter(contact =>
-      contact.name.toLowerCase().includes(normalizedFilter)
+        contact.name.toLowerCase().includes(normalizedFilter)
       );
     }
   };

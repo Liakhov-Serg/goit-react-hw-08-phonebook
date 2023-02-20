@@ -1,6 +1,5 @@
-// import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
-import { setFilter, getFilter } from '../../redux/contactsSlice';
+import { setFilter, getFilter } from '../../redux/filterSlice';
 
 import './Filter.module.css';
 
@@ -8,7 +7,7 @@ export const Filter = () => {
   const dispatch = useDispatch();
   const filter = useSelector(getFilter);
 
-    return (
+  return (
     <label>
       <input
         type="text"
