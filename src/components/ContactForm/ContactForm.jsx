@@ -1,25 +1,19 @@
-
 import { useState } from "react";
-
 import './ContactForm.module.css';
-
 import {
   useGetContactsQuery,
   useAddContactMutation,
 } from '../../redux/contactsSlice';
 
-
 export const ContactForm = () => {
   const [name, setName] = useState('');
   const [phone, setNumber] = useState('');
-
 
   const {data: contacts} = useGetContactsQuery();
   const [addContact] = useAddContactMutation();
 
   const handleChange = event => {
-    // console.log(event.target.value, event.target.name);
-    
+     
     const { name, value } = event.target;
     switch (name) {
       case 'name':
@@ -38,7 +32,7 @@ export const ContactForm = () => {
     event.preventDefault();
     const contact = {
       name,
-      number,
+      phone,
     };
 
     const enterContacts = contacts.some(
@@ -47,7 +41,7 @@ export const ContactForm = () => {
         contact.phone === phone
     );
     enterContacts
-      ? alert(`${name} or ${number} is already in contacts`)
+      ? alert(`${name} or ${phone} is already in contacts`)
       : addContact(contact);
 
     setName('');
@@ -71,7 +65,7 @@ export const ContactForm = () => {
       <input
         type="tel"
         name="number"
-        value={number}
+        value={phone}
         onChange={handleChange}
         placeholder="number"
         pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
