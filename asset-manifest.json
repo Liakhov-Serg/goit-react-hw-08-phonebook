@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/goit-react-hw-08-phonebook/static/css/main.68eb2271.css",
+    "main.css": "/goit-react-hw-08-phonebook/static/css/main.4d6f2aff.css",
     "main.js": "/goit-react-hw-08-phonebook/static/js/main.d7f3a8d3.js",
     "static/media/big_telefonnyy-spravochnik.jpg": "/goit-react-hw-08-phonebook/static/media/big_telefonnyy-spravochnik.609921884883e1ce2cd9.jpg",
     "index.html": "/goit-react-hw-08-phonebook/index.html",
-    "main.68eb2271.css.map": "/goit-react-hw-08-phonebook/static/css/main.68eb2271.css.map",
+    "main.4d6f2aff.css.map": "/goit-react-hw-08-phonebook/static/css/main.4d6f2aff.css.map",
     "main.d7f3a8d3.js.map": "/goit-react-hw-08-phonebook/static/js/main.d7f3a8d3.js.map"
   },
   "entrypoints": [
-    "static/css/main.68eb2271.css",
+    "static/css/main.4d6f2aff.css",
     "static/js/main.d7f3a8d3.js"
   ]
 }
