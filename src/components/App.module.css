@@ -8,6 +8,6 @@ section {
   background-color: rgba(178 146 171 / 50%);
   box-shadow: 0px 0px 8px 0px #33333347;
   background-image: url(./big_telefonnyy-spravochnik.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-size: contain;
+  
 }
