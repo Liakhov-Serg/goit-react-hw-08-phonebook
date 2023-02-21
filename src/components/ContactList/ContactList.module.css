@@ -4,6 +4,7 @@ ul {
   list-style: none;
   padding: 0;
   align-items: center;
+  
   background-color: rgba(247, 238, 239, 0.75);
   width: 266px;
 }
