@@ -2,10 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import authOperations from './auth-operations';
 
 const initialState = {
-  user: {
-    name: null,
-    email: null,
-  },
+  user: null,
   token: null,
   isLoggedIn: false,
   isFetchingCurrentUser: false,
@@ -14,40 +11,41 @@ const initialState = {
 const authSlise = createSlice({
   name: 'auth',
   initialState,
-  extraReducers: {
-    [authOperations.register.fulfilled](state, action) {
-      state.user = action.payload.user;
-      state.token = action.payload.token;
+  extraReducers: builder => {
+    builder
+    .addCase(authOperations.register.fulfilled, (state, {payload}) =>{
+      state.user = payload.user;
+      state.token = payload.token;
       state.isLoggedIn = true;
-    },
+    })
 
-    [authOperations.logIn.fulfilled](state, action) {
-      state.user = action.payload.user;
-      state.token = action.payload.token;
+    .addCase(authOperations.logIn.fulfilled, (state, {payload}) =>{
+      state.user = payload.user;
+      state.token = payload.token;
       state.isLoggedIn = true;
-    },
+    })
 
-    [authOperations.logOut.fulfilled](state, action) {
+    .addCase(authOperations.logOut.fulfilled, (state, {payload}) =>{
       state.user = {
         name: null,
         email: null,
       };
       state.token = null;
       state.isLoggedIn = false;
-    },
+    })
 
-    [authOperations.fetchCurrentUser.pending](state) {
+    .addCase(authOperations.fetchCurrentUser.pending,(state) =>{
       state.isFetchingCurrentUser = true;
-    },
-    [authOperations.fetchCurrentUser.fulfilled](state, action) {
-      // console.log(action);
-      state.user = action.payload;
+    })
+   .addCase(authOperations.fetchCurrentUser.fulfilled, (state, {payload}) =>{
+ 
+      state.user = payload;
       state.isLoggedIn = true;
       state.isFetchingCurrentUser = false;
-    },
-    [authOperations.fetchCurrentUser.rejected](state) {
+    })
+    .addCase(authOperations.fetchCurrentUser.rejected, (state) =>{
       state.isFetchingCurrentUser = false;
-    },
+    })
   },
 });
 
