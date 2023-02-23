@@ -14,49 +14,42 @@ const contactsSlice = createSlice({
       return { ...state, filter: payload };
     },
   },
-  extraReducers: {
-    [contactsOperations.getContacts.pending]: (state, _) => ({
-      ...state,
-      isLoaging: true,
-    }),
-    [contactsOperations.getContacts.fulfilled]: (state, { payload }) => {
+  extraReducers: builder => {
+    builder
+    .addCase(contactsOperations.getContacts.pending,(state, _) => {
+      state.isLoaging = true;
+    })
+    .addCase(contactsOperations.getContacts.fulfilled, (state, { payload }) => {
       return { ...state, items: payload, isLoaging: false };
-    },
-    [contactsOperations.getContacts.rejected]: (state, { payload }) => ({
-      ...state,
-      error: payload,
-      isLoaging: false,
-    }),
+    })
+    .addCase(contactsOperations.getContacts.rejected, (state, { payload }) => {
+      state.error = payload;
+      state.isLoaging = false;
+    })
 
-    [contactsOperations.addContact.pending]: (state, _) => ({
-      ...state,
-      isLoaging: true,
-    }),
-    [contactsOperations.addContact.fulfilled]: (state, { payload }) => ({
-      ...state,
-      items: [payload, ...state.items],
-      isLoaging: false,
-    }),
-    [contactsOperations.addContact.rejected]: (state, { payload }) => ({
-      ...state,
-      error: payload,
-      isLoaging: false,
-    }),
+    .addCase(contactsOperations.addContact.pending, (state, _) => {
+      state.isLoaging = true;
+    })
+    .addCase(contactsOperations.addContact.fulfilled, (state, { payload }) => {
+      state.items = [payload, ...state.items];
+      state.isLoaging = false;
+    })
+    .addCase(contactsOperations.addContact.rejected, (state, { payload }) => {
+      state.error = payload;
+      state.isLoaging = false;
+    })
 
-    [contactsOperations.deleteContact.pending]: (state, _) => ({
-      ...state,
-      isLoaging: true,
-    }),
-    [contactsOperations.deleteContact.fulfilled]: (state, { payload }) => ({
-      ...state,
-      items: state.items.filter(({ id }) => id !== payload),
-      isLoaging: false,
-    }),
-    [contactsOperations.deleteContact.rejected]: (state, { payload }) => ({
-      ...state,
-      error: payload,
-      isLoaging: false,
-    }),
+    .addCase(contactsOperations.deleteContact.pending, (state, _) => {
+      state.isLoaging = true;
+    })
+    .addCase(contactsOperations.deleteContact.fulfilled, (state, { payload }) => {
+      state.items = state.items.filter(({ id }) => id !== payload);
+      state.isLoaging = false;
+    })
+    .addCase(contactsOperations.deleteContact.rejected, (state, { payload }) => {
+      state.error = payload;
+      state.isLoaging = false;
+    })
   },
 });
 
